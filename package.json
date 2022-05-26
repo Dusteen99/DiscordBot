@@ -1,0 +1,9 @@
+{
+    "name": "Pokebot",
+    "version": "0.0.1",
+    "description": "Allows you to simulate pokemon cards and pokemon",
+    "main": "bot.js",
+    "author": "Dustin Adkins",
+    "dependencies": {}
+    
+}
