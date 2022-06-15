@@ -1,8 +1,36 @@
+const Rarities = ["Common", "Uncommon", "Rare"];
+const Modifiers = ["None", "ReverseHolo", "Holo", "Error"];
+const BaseSetPokeRareList = [
+    {name: 'Alakazam', rarity: 'Rare', modifier: 'Holo '},
+    {name: 'Blastoise', rarity: 'Rare', modifier: 'Holo' },
+    {name: 'Chansey', rarity: 'Rare', modifier: 'Holo' },
+    {name: 'Charizard', rarity: 'Rare', modifier: 'Holo '},
+    {name: 'Clefairy', rarity: 'Rare', modifier: 'Holo '},
+    {name: 'Gyarados', rarity: 'Rare', modifier: 'Holo '},
+    {name: 'Hitmonchan', rarity: 'Rare', modifier: 'Holo '},
+    {name: 'Machamp', rarity: 'Rare', modifier: 'Holo '},
+    {name: 'Magneton', rarity: 'Rare', modifier: 'Holo '},
+    {name: 'Mewtwo', rarity: 'Rare', modifier: 'Holo '},
+    {name: 'Nidoking', rarity: 'Rare', modifier: 'Holo '},
+    {name: 'Ninetales', rarity: 'Rare', modifier: 'Holo '},
+    {name: 'Poliwrath', rarity: 'Rare', modifier: 'Holo '},
+    {name: 'Raichu', rarity: 'Rare', modifier: 'Holo '},
+    {name: 'Venusaur', rarity: 'Rare', modifier: 'Holo '},
+    {name: 'Zapdos', rarity: 'Rare', modifier: 'Holo '},
+    {name: 'Beedrill', rarity: 'Rare', modifier: ''},
+    {name: 'Dragonair', rarity: 'Rare', modifier: ''},
+    {name: 'Dugtrio', rarity: 'Rare', modifier: ''},
+    {name: 'Electabuzz', rarity: 'Rare', modifier: ''},
+    {name: 'Electrode', rarity: 'Rare', modifier: ''},
+    {name: 'Pidgeotto', rarity: 'Rare', modifier: ''}];
+
 var Discord = require('discord.io');
 
 var logger = require('winston');
 
 var auth = require('./auth.json');
+
+
 
 //configure logger settings
 
@@ -39,13 +67,22 @@ bot.on('message', function(user, userID, channelID, message, evt){
         switch(cmd){
             //%ping
 
-            case 'ping':
+            case 'pokemon':
+                //Roll random number
+                var roll = Math.floor(Math.random() * BaseSetPokeRareList.length);
+                
+                var pokemon = BaseSetPokeRareList[roll].modifier + BaseSetPokeRareList[roll].name + roll;
                 bot.sendMessage({
                     to: channelID,
-                    message: 'Pong!'
+                    message: pokemon
                 });
                 break;
-            //more commands here
+            case 'Shoogy':
+                bot.sendMessage({
+                    to: channelID,
+                    message: 'Ill be on in an hour'
+                });
+                break;
         }
     }
 });
