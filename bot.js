@@ -2,8 +2,8 @@ const Rarities = ["Common", "Uncommon", "Rare"];
 const Modifiers = ["None", "ReverseHolo", "Holo", "Error"];
 const BaseSetPokeRareList = [
     {name: 'Alakazam', rarity: 'Rare', modifier: 'Holo '},
-    {name: 'Blastoise', rarity: 'Rare', modifier: 'Holo' },
-    {name: 'Chansey', rarity: 'Rare', modifier: 'Holo' },
+    {name: 'Blastoise', rarity: 'Rare', modifier: 'Holo ' },
+    {name: 'Chansey', rarity: 'Rare', modifier: 'Holo ' },
     {name: 'Charizard', rarity: 'Rare', modifier: 'Holo '},
     {name: 'Clefairy', rarity: 'Rare', modifier: 'Holo '},
     {name: 'Gyarados', rarity: 'Rare', modifier: 'Holo '},
@@ -146,13 +146,13 @@ bot.on('message', function(user, userID, channelID, message, evt){
 
     if(message.substring(0,1) == '%'){
         var args = message.substring(1).split(' ');
-        var cmd = args[0];
+        var cmd = message.substring(1).toLowerCase();
         args = args.splice(1);
 
         switch(cmd){
             //%ping
 
-            case 'pokemon':
+            case 'open base set pack':
                 
                 //Roll energies
                 var pokemon = '**Energies:**\n';
