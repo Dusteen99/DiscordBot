@@ -109,7 +109,17 @@ const BaseSetPokeEnergyList = [
     {name: 'Lightning Energy', rarity: 'Energy', modifier: ''},
 ];
 
+//Requirements
 var Discord = require('discord.io');
+const mySecret = process.env['DISCORD_TOKEN'];
+var admin = require("firebase-admin");
+const serviceAccount = require("./firebase.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
+const DB = admin.firestore();
 
 var logger = require('winston');
 
@@ -141,7 +151,7 @@ bot.on('ready', function (evt){
 });
 
 bot.on('message', function(user, userID, channelID, message, evt){
-    //Out bot needs to know if it will execute a command
+    //Our bot needs to know if it will execute a command
     //It will listen for messages that start with %
 
     if(message.substring(0,1) == '%'){
@@ -186,6 +196,13 @@ bot.on('message', function(user, userID, channelID, message, evt){
                 bot.sendMessage({
                     to: channelID,
                     message: 'Ill be on in an hour'
+                });
+                break;
+            case 'test':
+                DB.collection('CardList').add({
+                    CardName: message,
+                    Modifier: user,
+                    Rarity: userID
                 });
                 break;
         }
