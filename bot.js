@@ -1,119 +1,114 @@
-const Rarities = ["Common", "Uncommon", "Rare"];
-const Modifiers = ["None", "ReverseHolo", "Holo", "Error"];
-const BaseSetPokeRareList = [
-    {name: 'Alakazam', rarity: 'Rare', modifier: 'Holo '},
-    {name: 'Blastoise', rarity: 'Rare', modifier: 'Holo ' },
-    {name: 'Chansey', rarity: 'Rare', modifier: 'Holo ' },
-    {name: 'Charizard', rarity: 'Rare', modifier: 'Holo '},
-    {name: 'Clefairy', rarity: 'Rare', modifier: 'Holo '},
-    {name: 'Gyarados', rarity: 'Rare', modifier: 'Holo '},
-    {name: 'Hitmonchan', rarity: 'Rare', modifier: 'Holo '},
-    {name: 'Machamp', rarity: 'Rare', modifier: 'Holo '},
-    {name: 'Magneton', rarity: 'Rare', modifier: 'Holo '},
-    {name: 'Mewtwo', rarity: 'Rare', modifier: 'Holo '},
-    {name: 'Nidoking', rarity: 'Rare', modifier: 'Holo '},
-    {name: 'Ninetales', rarity: 'Rare', modifier: 'Holo '},
-    {name: 'Poliwrath', rarity: 'Rare', modifier: 'Holo '},
-    {name: 'Raichu', rarity: 'Rare', modifier: 'Holo '},
-    {name: 'Venusaur', rarity: 'Rare', modifier: 'Holo '},
-    {name: 'Zapdos', rarity: 'Rare', modifier: 'Holo '},
-    {name: 'Beedrill', rarity: 'Rare', modifier: ''},
-    {name: 'Dragonair', rarity: 'Rare', modifier: ''},
-    {name: 'Dugtrio', rarity: 'Rare', modifier: ''},
-    {name: 'Electabuzz', rarity: 'Rare', modifier: ''},
-    {name: 'Electrode', rarity: 'Rare', modifier: ''},
-    {name: 'Pidgeotto', rarity: 'Rare', modifier: ''},
-    {name: 'Clefairy Doll', rarity: 'Rare', modifier: ''},
-    {name: 'Computer Search', rarity: 'Rare', modifier: ''},
-    {name: 'Devolution Spray', rarity: 'Rare', modifier: ''},
-    {name: 'Impostor Professor Oak', rarity: 'Rare', modifier: ''},
-    {name: 'Item Finder', rarity: 'Rare', modifier: ''},
-    {name: 'Lass', rarity: 'Rare', modifier: ''},
-    {name: 'Pokemon Breeder', rarity: 'Rare', modifier: ''},
-    {name: 'Pokemon Trader', rarity: 'Rare', modifier: ''},
-    {name: 'Scoop Up', rarity: 'Rare', modifier: ''},
-    {name: 'Super Energy Removal', rarity: 'Rare', modifier: ''}];
-
-const BaseSetPokeUncommonList = [
-        {name: 'Arcanine', rarity: 'Uncommon', modifier: ''},
-        {name: 'Charmeleon', rarity: 'Uncommon', modifier: ''},
-        {name: 'Dewgong', rarity: 'Uncommon', modifier: ''},
-        {name: 'Dratini', rarity: 'Uncommon', modifier: ''},
-        {name: 'Farfetch\'d', rarity: 'Uncommon', modifier: ''},
-        {name: 'Growlithe', rarity: 'Uncommon', modifier: ''},
-        {name: 'Haunter', rarity: 'Uncommon', modifier: ''},
-        {name: 'Ivysaur', rarity: 'Uncommon', modifier: ''},
-        {name: 'Jynx', rarity: 'Uncommon', modifier: ''},
-        {name: 'Kadabra', rarity: 'Uncommon', modifier: ''},
-        {name: 'Kakuna', rarity: 'Uncommon', modifier: ''},
-        {name: 'Machoke', rarity: 'Uncommon', modifier: ''},
-        {name: 'Magikarp', rarity: 'Uncommon', modifier: ''},
-        {name: 'Magmar', rarity: 'Uncommon', modifier: ''},
-        {name: 'Nidorino', rarity: 'Uncommon', modifier: ''},
-        {name: 'Poliwhirl', rarity: 'Uncommon', modifier: ''},
-        {name: 'Porygon', rarity: 'Uncommon', modifier: ''},
-        {name: 'Raticate', rarity: 'Uncommon', modifier: ''},
-        {name: 'Seel', rarity: 'Uncommon', modifier: ''},
-        {name: 'Wartortle', rarity: 'Uncommon', modifier: ''},
-        {name: 'Defender', rarity: 'Uncommon', modifier: ''},
-        {name: 'Energy Retrieval', rarity: 'Uncommon', modifier: ''},
-        {name: 'Full Heal', rarity: 'Uncommon', modifier: ''},
-        {name: 'Maintenance', rarity: 'Uncommon', modifier: ''},
-        {name: 'PlusPower', rarity: 'Uncommon', modifier: ''},
-        {name: 'Pokemon Center', rarity: 'Uncommon', modifier: ''},
-        {name: 'Pokemon Flute', rarity: 'Uncommon', modifier: ''},
-        {name: 'Pokedex', rarity: 'Uncommon', modifier: ''},
-        {name: 'Professor Oak', rarity: 'Uncommon', modifier: ''},
-        {name: 'Revive', rarity: 'Uncommon', modifier: ''},
-        {name: 'Super Potion', rarity: 'Uncommon', modifier: ''},
-        {name: 'Double Colorless Energy', rarity: 'Uncommon', modifier: ''}
-];
-const BaseSetPokeCommonList = [
-    {name: 'Abra', rarity: 'Common', modifier: ''},
-    {name: 'Bulbasaur', rarity: 'Common', modifier: ''},
-    {name: 'Caterpie', rarity: 'Common', modifier: ''},
-    {name: 'Charmander', rarity: 'Common', modifier: ''},
-    {name: 'Diglett', rarity: 'Common', modifier: ''},
-    {name: 'Doduo', rarity: 'Common', modifier: ''},
-    {name: 'Drowzee', rarity: 'Common', modifier: ''},
-    {name: 'Gastly', rarity: 'Common', modifier: ''},
-    {name: 'Koffing', rarity: 'Common', modifier: ''},
-    {name: 'Machop', rarity: 'Common', modifier: ''},
-    {name: 'Magnemite', rarity: 'Common', modifier: ''},
-    {name: 'Metapod', rarity: 'Common', modifier: ''},
-    {name: 'Nidoran', rarity: 'Common', modifier: ''},
-    {name: 'Onix', rarity: 'Common', modifier: ''},
-    {name: 'Pidgey', rarity: 'Common', modifier: ''},
-    {name: 'Pikachu', rarity: 'Common', modifier: ''},
-    {name: 'Poliwag', rarity: 'Common', modifier: ''},
-    {name: 'Ponyta', rarity: 'Common', modifier: ''},
-    {name: 'Rattata', rarity: 'Common', modifier: ''},
-    {name: 'Sandshrew', rarity: 'Common', modifier: ''},
-    {name: 'Squirtle', rarity: 'Common', modifier: ''},
-    {name: 'Starmie', rarity: 'Common', modifier: ''},
-    {name: 'Staryu', rarity: 'Common', modifier: ''},
-    {name: 'Tangela', rarity: 'Common', modifier: ''},
-    {name: 'Voltorb', rarity: 'Common', modifier: ''},
-    {name: 'Vulpix', rarity: 'Common', modifier: ''},
-    {name: 'Weedle', rarity: 'Common', modifier: ''},
-    {name: 'Bill', rarity: 'Common', modifier: ''},
-    {name: 'Energy Removal', rarity: 'Common', modifier: ''},
-    {name: 'Gust of Wind', rarity: 'Common', modifier: ''},
-    {name: 'Potion', rarity: 'Common', modifier: ''},
-    {name: 'Switch', rarity: 'Common', modifier: ''}
-];
-const BaseSetPokeEnergyList = [
-    {name: 'Fighting Energy', rarity: 'Energy', modifier: ''},
-    {name: 'Fire Energy', rarity: 'Energy', modifier: ''},
-    {name: 'Grass Energy', rarity: 'Energy', modifier: ''},
-    {name: 'Lightning Energy', rarity: 'Energy', modifier: ''},
-];
+/*const cards = [{Name: 'Alakazam', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet'},
+{Name: 'Blastoise', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet' },
+{Name: 'Chansey', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet' },
+{Name: 'Charizard', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet'},
+{Name: 'Clefairy', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet'},
+{Name: 'Gyarados', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet'},
+{Name: 'Hitmonchan', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet'},
+{Name: 'Machamp', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet'},
+{Name: 'Magneton', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet'},
+{Name: 'Mewtwo', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet'},
+{Name: 'Nidoking', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet'},
+{Name: 'Ninetales', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet'},
+{Name: 'Poliwrath', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet'},
+{Name: 'Raichu', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet'},
+{Name: 'Venusaur', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet'},
+{Name: 'Zapdos', Rarity: 'Rare', Modifier: 'Holo ', Set: 'baseSet'},
+{Name: 'Beedrill', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Dragonair', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Dugtrio', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Electabuzz', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Electrode', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Pidgeotto', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Clefairy Doll', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Computer Search', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Devolution Spray', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Impostor Professor Oak', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Item Finder', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Lass', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Pokemon Breeder', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Pokemon Trader', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Scoop Up', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Super Energy Removal', Rarity: 'Rare', Modifier: '', Set: 'baseSet'},
+{Name: 'Arcanine', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Charmeleon', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Dewgong', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Dratini', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Farfetch\'d', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Growlithe', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Haunter', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Ivysaur', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Jynx', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Kadabra', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Kakuna', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Machoke', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Magikarp', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Magmar', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Nidorino', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Poliwhirl', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Porygon', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Raticate', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Seel', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Wartortle', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Defender', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Energy Retrieval', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Full Heal', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Maintenance', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'PlusPower', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Pokemon Center', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Pokemon Flute', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Pokedex', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Professor Oak', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Revive', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Super Potion', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Double Colorless Energy', Rarity: 'Uncommon', Modifier: '', Set: 'baseSet'},
+{Name: 'Abra', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Bulbasaur', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Caterpie', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Charmander', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Diglett', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Doduo', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Drowzee', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Gastly', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Koffing', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Machop', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Magnemite', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Metapod', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Nidoran', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Onix', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Pidgey', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Pikachu', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Poliwag', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Ponyta', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Rattata', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Sandshrew', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Squirtle', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Starmie', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Staryu', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Tangela', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Voltorb', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Vulpix', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Weedle', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Bill', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Energy Removal', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Gust of Wind', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Potion', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Switch', Rarity: 'Common', Modifier: '', Set: 'baseSet'},
+{Name: 'Fighting Energy', Rarity: 'Energy', Modifier: '', Set: 'baseSet'},
+{Name: 'Fire Energy', Rarity: 'Energy', Modifier: '', Set: 'baseSet'},
+{Name: 'Grass Energy', Rarity: 'Energy', Modifier: '', Set: 'baseSet'},
+{Name: 'Lightning Energy', Rarity: 'Energy', Modifier: '', Set: 'baseSet'}];*/
 
 //Requirements
+
 var Discord = require('discord.io');
 const mySecret = process.env['DISCORD_TOKEN'];
 var admin = require("firebase-admin");
+var firebase = require("firebase/app");
+var firestor = require("firebase/firestore");
 const serviceAccount = require("./firebase.json");
+
+firebase.initializeApp({ /* ... */ });
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
@@ -125,6 +120,7 @@ var logger = require('winston');
 
 var auth = require('./auth.json');
 
+const dbRef = new FireSQL(firebase.firestore());
 
 
 //configure logger settings
@@ -167,6 +163,9 @@ bot.on('message', function(user, userID, channelID, message, evt){
                 //Roll energies
                 var pokemon = '**Energies:**\n';
                 for (let i = 0; i <= 1; i++) {
+                    var BaseSetPokeCommonList = fireSQL.query(`SELECT Name, Modifier FROM CardList WHERE Set = 'baseSet' And Rarity = 'common'`);
+
+
                     var energyRoll = Math.floor(Math.random() * BaseSetPokeEnergyList.length);
                     pokemon += BaseSetPokeEnergyList[energyRoll].modifier + BaseSetPokeEnergyList[energyRoll].name + '\n';
                 }
@@ -196,13 +195,6 @@ bot.on('message', function(user, userID, channelID, message, evt){
                 bot.sendMessage({
                     to: channelID,
                     message: 'Ill be on in an hour'
-                });
-                break;
-            case 'test':
-                DB.collection('CardList').add({
-                    CardName: message,
-                    Modifier: user,
-                    Rarity: userID
                 });
                 break;
         }

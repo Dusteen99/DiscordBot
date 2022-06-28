@@ -8,7 +8,9 @@
         "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
         "discord.js": "^13.8.1",
         "events": "^3.3.0",
+        "firebase": "^9.8.4",
         "firebase-admin": "^11.0.0",
+        "firesql": "^2.0.2",
         "n": "^8.2.0",
         "node": "^18.4.0",
         "winston": "^3.7.2"
